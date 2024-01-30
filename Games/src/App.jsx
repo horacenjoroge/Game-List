@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, createContext, useEffect, } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -10,10 +10,16 @@ function App() {
   const [count, setCount] = useState(0)
   const[theme, setTheme] = useState('light')
 
+  useEffect(() => {
+
+    setTheme(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light')
+
+  }, [])
+
   return (
     <ThemeContext.Provider value={{theme,setTheme}}>
       <div className={`${theme}
-       ${theme=='dark'?'bg-[#121212]':''} h-[100vh]`}>
+       ${theme=='dark' ? 'bg-[#121212]':'null'} h-[100vh]`}>
       <Header/>
       <Home/>
       </div>
