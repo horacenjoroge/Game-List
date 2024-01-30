@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Banner() {
+function Banner({gameBanner}) {
   return (
     <div>
-      
+      Banner
     </div>
   )
 }
